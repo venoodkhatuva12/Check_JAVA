@@ -136,17 +136,17 @@ JRE_HOME=`dirname $JRE_JAVA_HOME`
 Insert="$PROPERTY=$JRE_HOME/java"
 Line_number_length=${#line_number}
 	if [ "$Line_number_length" != "0" ];then
-		last_occurence="${line_number[-1]}"
-			if [ "$last_occurence" != "" ];then
-				sed -i "${last_occurence}d" $PATH_CONFIG_FILE
-				file_length=`cat $PATH_CONFIG_FILE | wc -l`
-				if [ "$file_length" -lt "$last_occurence" ];then
-					echo "Setting $PROPERTY in $PATH_CONFIG_FILE to $Insert"
-					echo "$Insert" >> $PATH_CONFIG_FILE
+	last_occurence="${line_number[-1]}"
+		if [ "$last_occurence" != "" ];then
+		sed -i "${last_occurence}d" $PATH_CONFIG_FILE
+		file_length=`cat $PATH_CONFIG_FILE | wc -l`
+			if [ "$file_length" -lt "$last_occurence" ];then
+				echo "Setting $PROPERTY in $PATH_CONFIG_FILE to $Insert"
+				echo "$Insert" >> $PATH_CONFIG_FILE
 				else
-					sed -i "${last_occurence}i $Insert" $PATH_CONFIG_FILE
-				fi
+				sed -i "${last_occurence}i $Insert" $PATH_CONFIG_FILE
 			fi
+		fi
 	fi
 else
 	echo "Not able to find portal.cnf in current directory"
