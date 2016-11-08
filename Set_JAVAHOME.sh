@@ -91,11 +91,11 @@ fi
 
 if [ "$JRE_JAVA_HOME" == "" ];then
         Menu_Length="`expr ${#Compatiable_Java[@]} + 1`"
-        echo -e "\n Cannot determine which java to set as default java for zubron please choose one which you would like zubron to run on\n"
+        echo -e "\n Cannot determine which java to set as default java for Tomcat please choose one which you would like Tomcat to run on\n"
         counter=0
         choice=0
         while true;do
-                echo -e "\nChoose a Java Version which you want zubron to run on\n"
+                echo -e "\nChoose a Java Version which you want Tomcat to run on\n"
                 echo "Press `expr ${#Compatiable_Java[@]} + 1` to exit "
                 for java_path in "${Compatiable_Java[@]}"
                 do
@@ -122,7 +122,7 @@ if [ "$JRE_JAVA_HOME" == "" ];then
 fi
 
 if [ "$JRE_JAVA_HOME" == "" ];then
-        echo "Not able to set java... please download java from zubron at https://webblog.com/java7.zip and extract it"
+        echo "Not able to set java... please download java from Tomcat at http://downloads.sourceforge.net/project/jdk7src/jdk7u10/2013-01-04/src-jdk.zip and extract it"
 	return 1
 else
 	return 0
@@ -149,7 +149,7 @@ Line_number_length=${#line_number}
 		fi
 	fi
 else
-	echo "Not able to find portal.cnf in current directory"
+	echo "Not able to find catalina.cnf in current directory"
 fi
 }
 
